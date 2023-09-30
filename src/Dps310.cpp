@@ -82,6 +82,7 @@ int16_t Dps310::readcoeffs(void) {
     uint8_t buffer[18];
     //read COEF registers to buffer
     int16_t ret = readBlock(coeffBlock, buffer);
+    (void)ret; // UNUSED
 
     //compose coefficients from buffer content
     m_c0Half = ((uint32_t)buffer[0] << 4) | (((uint32_t)buffer[1] >> 4) & 0x0F);
