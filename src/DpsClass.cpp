@@ -160,7 +160,7 @@ int16_t DpsClass::getSingleResult(float& result) {
         case 1: //measurement ready, expected case
             Mode oldMode = m_opMode;
             m_opMode = IDLE; //opcode was automatically reseted by DPS310
-            int32_t raw_val;
+            int32_t raw_val = 0;
             switch (oldMode) {
                 case CMD_TEMP: //temperature
                     getRawResult(&raw_val, registerBlocks[TEMP]);
